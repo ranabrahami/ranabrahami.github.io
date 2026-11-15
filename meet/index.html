@@ -23,7 +23,7 @@
 <main>
   <div id="ok" hidden>
     <h1>A friend sent you their spot on the slopes</h1>
-    <p>Open it in Skeasy to get a ski route to them.</p>
+    <p>Tap the button to get a ski route to them in Skeasy.</p>
     <a id="app" class="btn app" href="#">Open in Skeasy</a>
     <a id="map" class="btn map" href="#">No Skeasy? Open in Maps</a>
     <small>The spot stays on your phone. This page does not receive it.</small>
@@ -53,8 +53,8 @@
   document.getElementById('app').href = link;
   document.getElementById('map').href = 'https://maps.apple.com/?q=' + lat + ',' + lon;
   document.getElementById('ok').hidden = false;
-  // Try the app straight away; the button is there if the phone asks first or blocks it.
-  location.href = link;
+  // No automatic jump to the app: on a phone without Skeasy, Safari answers that with an
+  // "address is invalid" alert on top of the Maps button. One tap on the button instead.
 })();
 </script>
 </body>
