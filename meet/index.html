@@ -28,9 +28,15 @@
     <a id="map" class="btn map" href="#">No Skeasy? Open in Maps</a>
     <small>The spot stays on your phone. This page does not receive it.</small>
   </div>
+  <div id="group" hidden>
+    <h1>You are invited to a group map on the slopes</h1>
+    <p>Tap the button to open it in Skeasy. Skeasy asks before it shares where you are.</p>
+    <a id="join" class="btn app" href="#">Open in Skeasy</a>
+    <small>You need the Skeasy app for this.</small>
+  </div>
   <div id="bad" hidden>
-    <h1>This link has no spot in it</h1>
-    <p>Ask your friend to send their spot again from Skeasy.</p>
+    <h1>This link does not work</h1>
+    <p>Ask your friend to send it again from Skeasy.</p>
   </div>
 </main>
 <script>
@@ -43,6 +49,13 @@
     var i = kv.indexOf('=');
     if (i > 0) q[kv.slice(0, i).toLowerCase()] = kv.slice(i + 1);
   });
+  // A group map invitation: only a code in the expected shape is passed on.
+  if (q.group !== undefined) {
+    if (!/^[A-Za-z0-9_-]{22,64}$/.test(q.group)) { document.getElementById('bad').hidden = false; return; }
+    document.getElementById('join').href = 'skeasy://group?code=' + q.group;
+    document.getElementById('group').hidden = false;
+    return;
+  }
   var num = /^-?\d{1,3}(\.\d{1,7})?$/;
   var lat = q.lat, lon = q.lon;
   var good = num.test(lat || '') && num.test(lon || '') && Math.abs(+lat) <= 90 && Math.abs(+lon) <= 180;
