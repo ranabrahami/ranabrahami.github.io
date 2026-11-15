@@ -1,0 +1,10 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["CZWP2D66RQ.com.ranabrahami.skiwaze"],
+        "components": [{ "/": "/meet/*" }, { "/": "/meet" }]
+      }
+    ]
+  }
+}

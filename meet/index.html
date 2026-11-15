@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<meta name="referrer" content="no-referrer">
+<title>Meet me on the slopes · Skeasy</title>
+<style>
+  body { margin: 0; min-height: 100vh; display: flex; align-items: center; justify-content: center;
+    font: 17px/1.5 -apple-system, system-ui, sans-serif; background: #f3f6fb; color: #101828; }
+  main { max-width: 22rem; padding: 24px; text-align: center; }
+  h1 { font-size: 26px; line-height: 1.2; margin: 0 0 8px; }
+  p { margin: 0 0 20px; color: #475467; }
+  a.btn { display: block; padding: 16px; border-radius: 18px; font-weight: 700; text-decoration: none; margin-bottom: 12px; }
+  a.app { background: #5b3df5; color: #fff; }
+  a.map { background: #fff; color: #101828; border: 1px solid #d0d5dd; }
+  small { color: #667085; }
+  [hidden] { display: none; }
+</style>
+</head>
+<body>
+<main>
+  <div id="ok" hidden>
+    <h1>A friend sent you their spot on the slopes</h1>
+    <p>Open it in Skeasy to get a ski route to them.</p>
+    <a id="app" class="btn app" href="#">Open in Skeasy</a>
+    <a id="map" class="btn map" href="#">No Skeasy? Open in Maps</a>
+    <small>The spot stays on your phone. This page does not receive it.</small>
+  </div>
+  <div id="bad" hidden>
+    <h1>This link has no spot in it</h1>
+    <p>Ask your friend to send their spot again from Skeasy.</p>
+  </div>
+</main>
+<script>
+// The spot comes after the # (or, for old links, after the ?). Only numbers and a
+// live code in the expected shape are passed on to the app; anything else is dropped.
+(function () {
+  var raw = (location.hash.length > 1 ? location.hash.slice(1) : location.search.slice(1));
+  var q = {};
+  raw.split('&').forEach(function (kv) {
+    var i = kv.indexOf('=');
+    if (i > 0) q[kv.slice(0, i).toLowerCase()] = kv.slice(i + 1);
+  });
+  var num = /^-?\d{1,3}(\.\d{1,7})?$/;
+  var lat = q.lat, lon = q.lon;
+  var good = num.test(lat || '') && num.test(lon || '') && Math.abs(+lat) <= 90 && Math.abs(+lon) <= 180;
+  if (!good) { document.getElementById('bad').hidden = false; return; }
+  var link = 'skeasy://meet?lat=' + lat + '&lon=' + lon;
+  if (/^\d{1,12}$/.test(q.t || '')) link += '&t=' + q.t;
+  if (/^[A-Za-z0-9_-]{22,64}$/.test(q.live || '')) link += '&live=' + q.live;
+  document.getElementById('app').href = link;
+  document.getElementById('map').href = 'https://maps.apple.com/?q=' + lat + ',' + lon;
+  document.getElementById('ok').hidden = false;
+  // Try the app straight away; the button is there if the phone asks first or blocks it.
+  location.href = link;
+})();
+</script>
+</body>
+</html>
