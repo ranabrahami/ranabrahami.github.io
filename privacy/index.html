@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<title>Privacy policy · Skeasy</title>
+<style>
+  body { margin: 0; font: 17px/1.55 -apple-system, system-ui, sans-serif; background: #f3f6fb; color: #101828; }
+  main { max-width: 44rem; margin: 0 auto; padding: 24px 16px 48px; }
+  h1 { font-size: 28px; line-height: 1.2; }
+  h2 { font-size: 21px; margin-top: 32px; }
+  h3 { font-size: 18px; margin-top: 24px; }
+  a { color: #5b3df5; }
+  .wrap { overflow-x: auto; }
+  table { border-collapse: collapse; width: 100%; font-size: 15px; background: #fff; }
+  th, td { border: 1px solid #d0d5dd; padding: 8px; text-align: left; vertical-align: top; }
+  th { background: #eef2f8; }
+</style>
+</head>
+<body>
+<main>
+<h1>Skeasy Privacy Policy</h1>
+<p>Last updated: 18 November 2026</p>
+<p>Skeasy (&quot;the app&quot;) routes skiers on the slopes and helps friends find each other. It is made by
+Ran Abrahami, an individual developer based in Israel, who is responsible for your data (the
+&quot;controller&quot;). Contact: <a href="mailto:ranabrahami@gmail.com">ranabrahami@gmail.com</a></p>
+<h2>The short version</h2>
+<ul>
+<li>Skeasy has <strong>no accounts, no ads, no analytics and no tracking</strong>. We don&#39;t sell or rent any data.</li>
+<li>Your location is used <strong>on your phone</strong> to show where you are and route you.</li>
+<li>Your location leaves your phone only when you choose: when you share it live with friends, join
+a group map, send your spot in a message, send a skier report, or turn on &quot;Report lifts I ride&quot;.</li>
+<li>The map is provided by Mapbox, which receives the map tiles your phone asks for and may collect
+anonymous usage and location data. You can turn that off (see section 4).</li>
+</ul>
+<h2>1. What stays on your phone</h2>
+<p>These are kept only on your device. We never receive them. Deleting the app deletes them.</p>
+<div class="wrap"><table>
+<thead>
+<tr>
+<th>What</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Your precise location (GPS)</td>
+<td>To show you on the map, route you, give voice directions and tell you when you leave the route.</td>
+</tr>
+<tr>
+<td>Trip recorder: today&#39;s GPS track and what the app did (route made, off route, new route)</td>
+<td>So you can look back at your day, and send it to us if something went wrong. Files older than 7 days are deleted automatically. The file leaves your phone only if you send it yourself.</td>
+</tr>
+<tr>
+<td>Your settings and plan: resort, run colours, hours, breaks, language, voice, map style, lifts and runs you marked closed, today&#39;s route</td>
+<td>So the app doesn&#39;t lose your plan when iPhone closes it in the background.</td>
+</tr>
+<tr>
+<td>Where you stay (&quot;Take me home&quot;): a village, a hotel from our list, or a spot you marked</td>
+<td>To route you home. Kept on the phone from day to day.</td>
+</tr>
+<tr>
+<td>Your personal pace (how fast you ski compared with the average for your level)</td>
+<td>To make route times fit you.</td>
+</tr>
+<tr>
+<td>The name you type for a group map</td>
+<td>So you don&#39;t have to type it again.</td>
+</tr>
+<tr>
+<td>A random phone ID (not linked to your Apple ID, your name or the phone&#39;s hardware)</td>
+<td>Sent with skier reports so one phone counts once (section 3.3).</td>
+</tr>
+</tbody></table></div>
+<p>Voice directions are spoken by your iPhone&#39;s own speech engine. No audio is recorded and the
+microphone is never used.</p>
+<h2>2. Location permission and background location</h2>
+<p>Skeasy asks for location &quot;While Using the App&quot;. When you follow a route or share your location
+live, Skeasy keeps receiving your location while the phone is locked or in your pocket, and iOS
+shows the location indicator while it does. It stops as soon as the route ends or sharing stops.
+You can change or withdraw the permission at any time in iPhone Settings &gt; Skeasy &gt; Location.
+Without it, the map and routes still work but the app can&#39;t show where you are.</p>
+<h2>3. What leaves your phone, and only when you choose</h2>
+<h3>3.1 Live location sharing and group maps</h3>
+<p>When you tap <strong>Share live</strong>, or start or join a <strong>group map</strong>:</p>
+<ul>
+<li>Your precise position is sent through a real-time channel run by our provider <strong>Supabase</strong>
+(servers in the EU, Ireland) to the friends who have the link you sent. On a group map it also
+carries the name you typed and the lifts and runs you marked &quot;Closed today&quot;, so your friends&#39;
+routes can avoid them. Updates go out about every 25 metres of movement or every 30 seconds.</li>
+<li>The channel name is a random code that only travels inside the message you send. Anyone you
+forward that message to can follow you, so share it only with people you trust.</li>
+<li><strong>Positions are not stored in a database.</strong> They pass through the channel while phones are
+connected and are gone when you stop.</li>
+<li>Sharing stops by itself after <strong>3 hours</strong>, or when you tap <strong>Stop</strong>.</li>
+</ul>
+<h3>3.2 Send my spot</h3>
+<p>&quot;Send my spot&quot; writes a message with your position in it, which you send yourself with the app
+you choose (WhatsApp, Messages and so on). The Skeasy link puts the position after a &quot;#&quot;, which
+the browser never sends to our web page. The message also holds an Apple Maps link for friends
+without Skeasy; if they open it, Apple receives that position under Apple&#39;s own privacy policy.
+The messaging app you pick handles the message under its own policy.</p>
+<h3>3.3 Skier reports</h3>
+<p>When you report something (lift closed, queue, icy run, powder, hazard and so on), we store in our
+Supabase database: the type of report, the resort, which lift or run, the time, your position
+rounded to about 10 metres, and the random phone ID. Anyone using Skeasy can see the report, its
+position and time for <strong>6 hours</strong>. They never see the phone ID: they get a scrambled
+value that only tells the app that two reports on the same lift or run came from the same phone.
+Reports are <strong>deleted after about a day</strong>. No name or account is attached.</p>
+<p><strong>&quot;Report lifts I ride&quot; (off unless you turn it on).</strong> The first time Skeasy sees you ride a lift,
+it asks whether to tell other skiers when a lift is running. If you say yes, then whenever the app
+is receiving your location (on screen, or while it follows a route or shares your location with
+the phone locked) and sees you ride a lift most of the way up, it sends a &quot;running&quot; report for that
+lift. It is stored exactly like a report you tap (the lift, your position rounded to about 10
+metres, the time and the random phone ID), at most once per lift every 30 minutes. It only ever
+says a lift is running. You can turn it on or off at any time in the plan panel.</p>
+<p><strong>How reports change routes.</strong> When two different phones report a lift or run closed within the
+hour, Skeasy plans other skiers&#39; routes around it where it can. Reports never close anything
+outright.</p>
+<h3>3.4 Sending your trip log</h3>
+<p>If you tap &quot;Send today&#39;s trip log&quot;, the file (GPS track and app events for the day) goes wherever
+you send it. If you send it to us, we use it only to find and fix problems, and delete it when we
+are done, within 90 days at most.</p>
+<h2>4. Services the app talks to on its own</h2>
+<div class="wrap"><table>
+<thead>
+<tr>
+<th>Service</th>
+<th>What it receives</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Mapbox</strong> (map, 3D terrain, offline maps; USA)</td>
+<td>Your IP address and which map area your phone loads; with telemetry on, anonymous usage and location data (see below)</td>
+<td>To draw the map</td>
+</tr>
+<tr>
+<td><strong>Liftie</strong> (liftie.info, lift status)</td>
+<td>Your IP address and which resort&#39;s lift status is asked for</td>
+<td>To show which lifts are open</td>
+</tr>
+<tr>
+<td><strong>Supabase</strong> (EU)</td>
+<td>Your IP address when reading skier reports or sharing live</td>
+<td>To show skier reports and run live sharing</td>
+</tr>
+<tr>
+<td><strong>GitHub Pages</strong> (our &quot;meet&quot; link page)</td>
+<td>Your friend&#39;s IP address when they open the link (not the position, see 3.2)</td>
+<td>To open the link in Skeasy</td>
+</tr>
+</tbody></table></div>
+<p>Like any web server, these services may keep short technical logs (IP address, time, request) for
+security and operations, under their own policies:
+<a href="https://www.mapbox.com/legal/privacy">Mapbox</a> (Mapbox says it deletes IP addresses within 30 days),
+<a href="https://supabase.com/privacy">Supabase</a>,
+<a href="https://docs.github.com/site-policy/privacy-policies/github-general-privacy-statement">GitHub</a>.
+Liftie is a free community project with no published privacy policy; it receives only your IP
+address and the name of the resort.</p>
+<p><strong>Mapbox telemetry.</strong> By default the Mapbox map sends Mapbox &quot;de-identified location and usage
+data&quot;, which Mapbox says it promptly anonymizes and aggregates to improve its maps, does not use
+for advertising, and does not link to your IP address (<a href="https://www.mapbox.com/telemetry">mapbox.com/telemetry</a>).
+You can turn this off at any time: tap the &quot;i&quot; on the map and opt out of Mapbox Telemetry.</p>
+<h2>5. What we don&#39;t do</h2>
+<ul>
+<li>No sign-up, no email, no phone number, no contacts, no photos, no payments.</li>
+<li>No advertising, no third-party analytics or crash-reporting tools, and no tracking across other
+companies&#39; apps or websites.</li>
+<li>We don&#39;t sell, rent or trade personal data.</li>
+</ul>
+<h2>6. Legal bases (EU and UK users)</h2>
+<ul>
+<li>Live sharing, group maps, Send my spot, skier reports and &quot;Report lifts I ride&quot;: your
+<strong>consent</strong> (you turn each one on), and providing the service you asked for.</li>
+<li>Location on your phone: providing the service you asked for, with your permission in iOS.</li>
+<li>Short server logs and limits on reports (6 per phone per 10 minutes): our <strong>legitimate
+interest</strong> in keeping the service safe and working.</li>
+</ul>
+<p><strong>How to withdraw consent, at any time:</strong> tap <strong>Stop</strong> on live sharing or leave the group map;
+turn off &quot;Report lifts I ride&quot; in the plan panel; turn off location in iPhone Settings &gt; Skeasy &gt;
+Location; opt out of Mapbox Telemetry with the &quot;i&quot; on the map; or delete the app, which erases
+everything kept on the phone.</p>
+<h2>7. How long we keep data</h2>
+<div class="wrap"><table>
+<thead>
+<tr>
+<th>Data</th>
+<th>Kept</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Live sharing and group map positions, names and &quot;Closed today&quot; marks</td>
+<td>Not stored; gone when sharing stops (3 hours at most)</td>
+</tr>
+<tr>
+<td>Skier reports (tapped, and lifts you ride if turned on)</td>
+<td>Visible 6 hours, deleted after about a day</td>
+</tr>
+<tr>
+<td>Trip log on your phone</td>
+<td>7 days, then deleted automatically</td>
+</tr>
+<tr>
+<td>Trip log you send us</td>
+<td>Until the problem is fixed, 90 days at most</td>
+</tr>
+<tr>
+<td>Settings on your phone</td>
+<td>Until you delete the app</td>
+</tr>
+</tbody></table></div>
+<h2>8. Where data is processed</h2>
+<p>Supabase processes data in the EU (Ireland). Mapbox is a US company; its privacy policy describes
+the safeguards it uses for international transfers. Liftie&#39;s server location is not published.</p>
+<h2>9. Your rights</h2>
+<p>Under the GDPR and similar laws (including Israel&#39;s Privacy Protection Law), you can ask to
+access, correct, delete or restrict your data, object to its use, and complain to your data
+protection authority. Because Skeasy has no accounts, we usually can&#39;t tell which data is yours:
+almost everything is on your phone (delete the app to erase it), and reports delete themselves
+within about a day. To exercise a right, email <a href="mailto:ranabrahami@gmail.com">ranabrahami@gmail.com</a>. If you want a report removed
+sooner, include the resort, the time and the place.</p>
+<h2>10. Children</h2>
+<p>Skeasy is not directed at children under 13. Children should use live location sharing only with
+a parent&#39;s agreement. If you think a child has sent us data, contact us and we will delete it.</p>
+<h2>11. Safety</h2>
+<p>Skeasy is a guide, not a safety device. Routes come from open map data, skier reports and status
+sources that can be wrong or out of date. Always follow the resort&#39;s signs, closures and ski patrol.</p>
+<h2>12. Changes</h2>
+<p>If we change this policy we will update the date above and, for important changes, tell you in
+the app.</p>
+<h2>13. Contact</h2>
+<p>Ran Abrahami, Israel · <a href="mailto:ranabrahami@gmail.com">ranabrahami@gmail.com</a></p>
+</main>
+</body>
+</html>
