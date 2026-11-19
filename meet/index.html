@@ -22,16 +22,20 @@
 <body>
 <main>
   <div id="ok" hidden>
-    <h1>A friend sent you their spot on the slopes</h1>
-    <p>Tap the button to get a ski route to them in Skeasy.</p>
+    <h1 id="title">A friend sent you their spot on the slopes</h1>
+    <p id="what" hidden></p>
+    <p id="lead">Tap the button to get a ski route to them in Skeasy, at your own level.</p>
     <a id="app" class="btn app" href="#">Open in Skeasy</a>
-    <a id="map" class="btn map" href="#">No Skeasy? Open in Maps</a>
+    <a class="btn map" href="/get/">No Skeasy yet? Get it</a>
+    <a id="map" class="btn map" href="#">Open in Maps instead</a>
+    <small id="livenote" hidden>Maps shows where they were when they sent this. Skeasy follows them live.<br></small>
     <small>The spot stays on your phone. This page does not receive it.</small>
   </div>
   <div id="group" hidden>
     <h1>You are invited to a group map on the slopes</h1>
     <p>Tap the button to open it in Skeasy. Skeasy asks before it shares where you are.</p>
     <a id="join" class="btn app" href="#">Open in Skeasy</a>
+    <a class="btn map" href="/get/">No Skeasy yet? Get it</a>
     <small>You need the Skeasy app for this.</small>
   </div>
   <div id="bad" hidden>
@@ -63,8 +67,29 @@
   var link = 'skeasy://meet?lat=' + lat + '&lon=' + lon;
   if (/^\d{1,12}$/.test(q.t || '')) link += '&t=' + q.t;
   if (/^[A-Za-z0-9_-]{22,64}$/.test(q.live || '')) link += '&live=' + q.live;
+  // A meeting point can carry a place name (n) and a time (at, HHMM on the resort's clock).
+  // Both go on to the app cleaned, and are shown here as plain text only (textContent).
+  var name = '';
+  try { name = decodeURIComponent(q.n || ''); } catch (e) { name = ''; }
+  name = name.replace(/[\u0000-\u001F\u007F-\u009F\u200B-\u200F\u202A-\u202E\u2060-\u2069\uFEFF<>]/g, '')
+    .replace(/\s+/g, ' ').trim().slice(0, 40).trim();
+  if (name) link += '&n=' + encodeURIComponent(name);
+  var at = /^([01]\d|2[0-3])[0-5]\d$/.test(q.at || '') ? q.at : '';
+  if (at) link += '&at=' + at;
+  if (name || at) {
+    document.getElementById('title').textContent = 'You are invited to meet on the slopes';
+    var w = document.getElementById('what');
+    w.textContent = (name ? 'Meeting point: ' + name : 'A meeting point') + (at ? ' at ' + at.slice(0, 2) + ':' + at.slice(2) : '');
+    w.hidden = false;
+    document.getElementById('lead').textContent = 'Tap the button to get a ski route there in Skeasy, at your own level.';
+  }
+  if (q.live) document.getElementById('livenote').hidden = false;
   document.getElementById('app').href = link;
-  document.getElementById('map').href = 'https://maps.apple.com/?q=' + lat + ',' + lon;
+  // Apple Maps on iPhone, Google Maps elsewhere (students on Android).
+  var apple = /iPhone|iPad|iPod|Macintosh/.test(navigator.userAgent);
+  document.getElementById('map').href = apple
+    ? 'https://maps.apple.com/?q=' + lat + ',' + lon
+    : 'https://www.google.com/maps/search/?api=1&query=' + lat + ',' + lon;
   document.getElementById('ok').hidden = false;
   // No automatic jump to the app: on a phone without Skeasy, Safari answers that with an
   // "address is invalid" alert on top of the Maps button. One tap on the button instead.
