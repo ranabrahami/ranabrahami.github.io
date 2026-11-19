@@ -72,8 +72,15 @@
   var name = '';
   try { name = decodeURIComponent(q.n || ''); } catch (e) { name = ''; }
   name = name.replace(/[\u0000-\u001F\u007F-\u009F\u200B-\u200F\u202A-\u202E\u2060-\u2069\uFEFF<>]/g, '')
-    .replace(/\s+/g, ' ').trim().slice(0, 40).trim();
-  if (name) link += '&n=' + encodeURIComponent(name);
+    .replace(/[\uD800-\uDFFF]/g, function (c, i, all) {
+      // Keep surrogate pairs (emoji), drop a lone half, which encodeURIComponent rejects.
+      var hi = c >= '\uD800' && c <= '\uDBFF', next = all.charAt(i + 1), prev = all.charAt(i - 1);
+      return (hi && next >= '\uDC00' && next <= '\uDFFF') || (!hi && prev >= '\uD800' && prev <= '\uDBFF') ? c : '';
+    })
+    .replace(/\s+/g, ' ').trim();
+  // Cut by characters, not UTF-16 units, so an emoji at the edge isn't split in half.
+  name = Array.from(name).slice(0, 40).join('').trim();
+  if (name) { try { link += '&n=' + encodeURIComponent(name); } catch (e) { name = ''; } }
   var at = /^([01]\d|2[0-3])[0-5]\d$/.test(q.at || '') ? q.at : '';
   if (at) link += '&at=' + at;
   if (name || at) {
