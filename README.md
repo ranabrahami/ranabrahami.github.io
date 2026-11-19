@@ -7,3 +7,5 @@ Small public pages for the Skeasy ski app.
 - `/privacy/` is the app's privacy policy (linked from the App Store page and inside the app).
   Source text: the project's `launch/privacy-policy.md`; regenerate this page when it changes.
 - `/support/` is the App Store support page.
+- `/get/` is where "No Skeasy yet? Get it" on `/meet/` leads. While the app is only on TestFlight it
+  explains how to get an invite; at launch, put the App Store (and Google Play) buttons there.
